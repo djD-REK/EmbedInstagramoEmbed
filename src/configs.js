@@ -1,12 +1,12 @@
 import { ElementPropTypes } from "@volusion/element-proptypes"
 
 export const configSchema = {
-  text: {
-    label: "Text content",
+  embedInstagramURL: {
+    label: "Instagram URL to embed",
     type: ElementPropTypes.string,
   },
 }
 
 export const defaultConfig = {
-  text: "Element Starter Block",
+  embedInstagramURL: "https://www.instagram.com/p/CAyUsL3srWr",
 }
