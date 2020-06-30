@@ -21,9 +21,14 @@ export const getDataProps = (utils, props) => {
   // Specifically, leaving the </script> tag will cause "SyntaxError:
   // unterminated string literal" error in some browsers, including Firefox.
 
-  return instagramPromise.then((value) => (value ? value.html : null))
+  return instagramPromise.then((value) =>
+    value ? jsonEscape(value.html) : null
+  )
   // If the Promise didn't work for some reason, then you can't access the
   // property value.html, so you need to return null to avoid a TypeError.
+  // 
+  // This is usually not a problem with Instagram posts, but can occur if the
+  // network request fails for some reason, such as if the oEmbed API is down.
 
   // If returning multiple Promises, it can be helpful to use Promise.all with
   // an array of Promises, such as when fetching multiple social media posts:
