@@ -23,10 +23,10 @@ export const getDataProps = (utils, props) => {
 
   return instagramPromise.then((value) =>
     value ? jsonEscape(value.html) : null
-  )
+  ) // Return null (or an optional error message) if the Promise fails.
   // If the Promise didn't work for some reason, then you can't access the
   // property value.html, so you need to return null to avoid a TypeError.
-  // 
+  //
   // This is usually not a problem with Instagram posts, but can occur if the
   // network request fails for some reason, such as if the oEmbed API is down.
 
